@@ -5,12 +5,12 @@ import { Cron, Interval, Timeout } from '@nestjs/schedule';
 export class TasksService {
     private readonly logger = new Logger(TasksService.name);
 
-    @Cron('15 * * * * *')
+    @Cron('* 5 * * * *')
     handleCron() {
-        this.logger.debug('Cron job chạy sau 15 giây mỗi phút');
+        this.logger.debug('Cron job chạy vào giây 15 mỗi phút');
     }
 
-    @Interval(10000)
+    @Interval(100000)
     handleInterval() {
         this.logger.debug('Interval vòng lặp lặp lại sau mỗi 10 giây');
     }
@@ -21,3 +21,4 @@ export class TasksService {
     }
 
 }
+// test đẩy đồng thời nhiều job
